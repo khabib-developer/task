@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CalendarCom } from '../calendar';
 import './index.css';
 
 export const Main: React.FC = () => {
     const [top, setTop] = useState<boolean>(true)
     const [show, setShow] = useState<boolean>(false)
+    useEffect(() => {
+        console.log(window.screen.width)
+    })
     return (
-        <div className='main'>
+        <div className='main w-100'>
 
-            <div className='main__navbar d-flex'>
+            <div className='main__navbar d-flex w-100'>
                 <div className='main__arrow d-flex child justify-content-center align-items-center'>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.828 6.99998H16V8.99998H3.828L9.192 14.364L7.778 15.778L0 7.99998L7.778 0.221985L9.192 1.63598L3.828 6.99998Z" fill="#2E3456"/>
@@ -26,7 +29,7 @@ export const Main: React.FC = () => {
                     </svg>
                      
                 </div>
-                <div className='main__search child d-flex justify-content-around align-items-center'>
+                <div className='main__search child d-flex justify-content-around align-items-center' style={{width: `${window.screen.width - 1080}px`}}>
 
                     <svg className='first' width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8.16667 0.666656C12.3067 0.666656 15.6667 4.02666 15.6667 8.16666C15.6667 12.3067 12.3067 15.6667 8.16667 15.6667C4.02667 15.6667 0.666667 12.3067 0.666667 8.16666C0.666667 4.02666 4.02667 0.666656 8.16667 0.666656ZM8.16667 14C11.3892 14 14 11.3892 14 8.16666C14 4.94332 11.3892 2.33332 8.16667 2.33332C4.94333 2.33332 2.33333 4.94332 2.33333 8.16666C2.33333 11.3892 4.94333 14 8.16667 14ZM15.2375 14.0592L17.595 16.4158L16.4158 17.595L14.0592 15.2375L15.2375 14.0592Z" fill="#2E3456"/>
@@ -69,11 +72,14 @@ export const Main: React.FC = () => {
             </div>
 
             <div className='main__store d-flex'>
-                <div className='first__column'>
+                <div className='first__column' style={{width: `${window.screen.width - 450}px`}}>
                     <div className='main__icon'>
                         <img src={process.env.PUBLIC_URL+"images/image.png"} alt="alt" />
                     </div>
-                    <img src={process.env.PUBLIC_URL+"images/bg.jpg"}alt="" />
+                    <div className='w-100 main__background' style={{background: `url("${process.env.PUBLIC_URL+"images/bg.jpg"}")`, height:"200.5px"}}>
+
+                    </div>
+                    {/* <img src={process.env.PUBLIC_URL+"images/bg.jpg"} width="100%" alt="" /> */}
                     <div className='d-flex align-items-center first__child justify-content-between'>
                         <div className='d-flex'>
                             <h4>
@@ -156,7 +162,7 @@ export const Main: React.FC = () => {
 
             <div className='main__cards'>
                 <div className='d-flex'>
-                    <div className='main__card first' style={{background:"rgba(255, 127, 16, 1)"}}>
+                    <div className='main__card first' style={{background:"rgba(255, 127, 16, 1)", width: `${(window.screen.width - 326) / 4.45609}px`}}>
                         <div className='text'>
                             <h5>
                                 Sale Orange
@@ -170,7 +176,7 @@ export const Main: React.FC = () => {
                         </div>
                         <img src={process.env.PUBLIC_URL+"images/card1.png"} alt="alt" />
                     </div>
-                    <div className='main__card' style={{background:"rgba(206, 52, 89, 1)"}}>
+                    <div className='main__card' style={{background:"rgba(206, 52, 89, 1)", width: `${(window.screen.width - 326) / 4.45609}px`}}>
                         <div className='text'>
                             <h5>
                                 Tomato
@@ -182,7 +188,7 @@ export const Main: React.FC = () => {
                         <img src={process.env.PUBLIC_URL+"images/card2.png"} alt="alt" />
                         
                     </div>
-                    <div className='main__card' style={{background:"rgb(169 195 11)"}}>
+                    <div className='main__card' style={{background:"rgb(169 195 11)", width: `${(window.screen.width - 326) / 4.45609}px`}}>
                         <div className='text'>
                             <h5>
                                 Sale 40% 
@@ -196,7 +202,7 @@ export const Main: React.FC = () => {
                         </div>
                         <img className='exception' src={process.env.PUBLIC_URL+"images/card3.png"} alt="alt" />
                     </div>
-                    <div className='main__card' style={{background:"rgba(47, 140, 246, 1)"}}>
+                    <div className='main__card' style={{background:"rgba(47, 140, 246, 1)", width: `${(window.screen.width - 326) / 4.45609}px`}}>
                         <div className='text'>
                             <h5>
                                 Sale 40
@@ -209,7 +215,7 @@ export const Main: React.FC = () => {
                             TEST40
                         </div>
                     </div>
-                    <div className='main__card' style={{background:"rgba(119, 83, 246, 1)"}}>
+                    <div className='main__card' style={{background:"rgba(119, 83, 246, 1)", width: `${(window.screen.width - 326) / 4.45609}px`}}>
                         <div className='text'>
                             <h5>
                                 Collection
@@ -232,28 +238,28 @@ export const Main: React.FC = () => {
                     <path d="M4.14166 14C4.31383 13.5121 4.63311 13.0895 5.05549 12.7907C5.47787 12.4918 5.98256 12.3313 6.49999 12.3313C7.01742 12.3313 7.52211 12.4918 7.94449 12.7907C8.36687 13.0895 8.68616 13.5121 8.85832 14H17.3333V15.6667H8.85832C8.68616 16.1546 8.36687 16.5771 7.94449 16.876C7.52211 17.1749 7.01742 17.3354 6.49999 17.3354C5.98256 17.3354 5.47787 17.1749 5.05549 16.876C4.63311 16.5771 4.31383 16.1546 4.14166 15.6667H0.666656V14H4.14166ZM9.14166 8.16667C9.31383 7.67872 9.63311 7.2562 10.0555 6.95733C10.4779 6.65846 10.9826 6.49796 11.5 6.49796C12.0174 6.49796 12.5221 6.65846 12.9445 6.95733C13.3669 7.2562 13.6862 7.67872 13.8583 8.16667H17.3333V9.83333H13.8583C13.6862 10.3213 13.3669 10.7438 12.9445 11.0427C12.5221 11.3415 12.0174 11.502 11.5 11.502C10.9826 11.502 10.4779 11.3415 10.0555 11.0427C9.63311 10.7438 9.31383 10.3213 9.14166 9.83333H0.666656V8.16667H9.14166ZM4.14166 2.33334C4.31383 1.84539 4.63311 1.42286 5.05549 1.12399C5.47787 0.825124 5.98256 0.664627 6.49999 0.664627C7.01742 0.664627 7.52211 0.825124 7.94449 1.12399C8.36687 1.42286 8.68616 1.84539 8.85832 2.33334H17.3333V4H8.85832C8.68616 4.48795 8.36687 4.91047 7.94449 5.20934C7.52211 5.50821 7.01742 5.66871 6.49999 5.66871C5.98256 5.66871 5.47787 5.50821 5.05549 5.20934C4.63311 4.91047 4.31383 4.48795 4.14166 4H0.666656V2.33334H4.14166Z" fill="black"/>
                     </svg>
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Pantrys
                 </div>
-                <div className={`main__menu__item active`}>
+                <div className={`main__menu__item active`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Fruits and Vegetables
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Eggs and Dairys
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Frozens
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Beverange
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Snacks
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                 Households
                 </div>
-                <div className={`main__menu__item`}>
+                <div className={`main__menu__item`} style={{ padding: `17px ${( ( window.screen.width - 1013) / 18 )}px` }}>
                     <span>More</span> 
                     <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.00005 4.97667L10.1251 0.851669L11.3034 2.03L6.00005 7.33334L0.696716 2.03L1.87505 0.851669L6.00005 4.97667Z" fill="black"/>
@@ -273,9 +279,9 @@ export const Main: React.FC = () => {
                 </div>
             </div>
 
-            <div className='main__products d-flex'>
+            <div className='main__products d-flex' style={{width: `${ (window.screen.width - 309) }px`}}>
                 
-                <div className='main__product__item mx-0'>
+                <div className='main__product__item mx-0'  style={{width: `${ (window.screen.width -  527 ) / 5 }px`}}>
 
                     <div className='d-flex justify-content-between align-items-center product__item__navbar'>
                         <div className='percent'>
@@ -304,7 +310,7 @@ export const Main: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className='main__product__item'>
+                <div className='main__product__item' style={{width: `${ (window.screen.width -  527 ) / 5 }px`}}>
 
                     <div className='d-flex justify-content-between align-items-center product__item__navbar'>
                         <div className='percent'>
@@ -333,7 +339,7 @@ export const Main: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className='main__product__item'>
+                <div className='main__product__item' style={{width: `${ (window.screen.width -  527 ) / 5 }px`}}>
 
                     <div className='d-flex justify-content-between align-items-center product__item__navbar'>
                         <div className='percent'>
@@ -362,7 +368,7 @@ export const Main: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className='main__product__item'>
+                <div className='main__product__item' style={{width: `${ (window.screen.width -  527 ) / 5 }px`}}>
 
                     <div className='d-flex justify-content-between align-items-center product__item__navbar'>
                         <div className='percent'>
@@ -391,7 +397,7 @@ export const Main: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <div className='main__product__item'>
+                <div className='main__product__item' style={{width: `${ (window.screen.width -  527 ) / 5 }px`}}>
 
                     <div className='d-flex justify-content-between align-items-center product__item__navbar'>
                         <div className='percent'>

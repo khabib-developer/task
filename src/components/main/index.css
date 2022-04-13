@@ -8,15 +8,20 @@
     border-radius: 10px;
 }
 
+.main__navbar {
+    padding-right: 15px;
+}
+
 .main__arrow {
     width: 60px;
+    /* width: 4.6%; */
     height: 60px;
 }
 
 .main__location {
     margin-left: 10px;
     width: 328px;
-    font-weight: 500;
+    /* width: 25.4%; */
     font-size: 14px;
     line-height: 16px;
     /* identical to box height, or 118% */
@@ -26,6 +31,8 @@
 
 .main__search {
     width: 359px;
+    /* width: 27.8%; */
+    /* width: calc(100% - 920px); */
     margin-left: 10px;
 }
 
@@ -57,6 +64,7 @@ svg.end {
 
 .main__time {
     width: 210px;
+    /* width: 16.27%; */
     padding: 10px;
     margin-left: 10px;
 }
@@ -81,6 +89,7 @@ svg.end {
 
 .main__price {
     width: 138px;
+    /* width: 10%; */
     margin-left: 10px;
     padding: 10px;
     cursor: pointer;
@@ -116,9 +125,13 @@ svg.end {
 }
 
 .first__column {
-    max-width: 987px;
+    /* max-width: 987px; */
     position: relative;
    
+}
+
+.main__background {
+    background-size: cover !important;
 }
 
 .first__column div.first__child {
@@ -254,13 +267,13 @@ svg.end {
 
 .main__card img {
     position: absolute;
-    left: 141px;
-    top: 36px;
+    bottom: 0;
+    right: 0;
 }
 
 .main__card img.exception {
-    left: 150px;
-    top: 60px;
+    /* left: 150px;
+    top: 60px; */
 }
 
 .main__menu__item.first {
@@ -341,7 +354,7 @@ svg.end {
 .main__product__item img {
     position: absolute;
     top: 9px;
-    left: 36px;
+    left: 25%;
 }
 
 .main__product__item .percent {
